@@ -5,7 +5,7 @@ browser tab is active/visible (https://github.com/Comfy-Org/ComfyUI_frontend/iss
 unnecessary once the frontend addresses the underlying causes — check the
 linked issue before installing.
 
-日本語: [README.ja.md](README.ja.md)
+日本語: [READMEja.md](READMEja.md)
 
 ## The problem
 
