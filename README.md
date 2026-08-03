@@ -13,6 +13,14 @@ With the ComfyUI tab active on the same GPU that runs inference, a 31-step
 job measured **25.3 s vs 15.6 s** when the tab was inactive (+62%). The
 overhead decomposes into three layers (full measurements in the issue):
 
+> **Note:** All numbers in this README come from a single reference
+> environment (RTX 5090, Firefox on Windows 11 + WSL2, 31-step job at
+> ~2 it/s, single GPU driving the display). Absolute times and the size of
+> each layer **will differ on your setup** — they scale with step rate,
+> workflow/UI complexity, display refresh rate, browser, and whether the
+> browser shares the inference GPU. Treat them as one data point, not a
+> guarantee. Measure before/after on your own workflow (`getStats()` helps).
+
 | Layer | Cost | Fix |
 |---|---|---|
 | Compositor churn from always-running CSS animations (tab spinner etc.) during execution | ≈4.6 s | This patch: **Quiet Mode** pauses CSS animations while a job runs |
@@ -27,13 +35,11 @@ browser rendered by the inference GPU (RTX 5090), main monitor.
 
 ## Install
 
-1. Remove any older throttle patches (stacked `dispatchCustomEvent` wrappers
-   are unsupported and produce a startup warning).
-2. Copy this folder into `ComfyUI/custom_nodes/`.
-3. Restart ComfyUI, hard-refresh the browser (Ctrl+F5).
-4. Console should show `[progress-throttle-safe] active` and
+1. Copy this folder into `ComfyUI/custom_nodes/`.
+2. Restart ComfyUI, hard-refresh the browser (Ctrl+F5).
+3. Console should show `[progress-throttle-safe] active` and
    `[quiet-mode] registered`; during a job, `[quiet-mode] on (css animations paused)`.
-5. Recommended: set Settings → Execution → Preview Method to `none`.
+4. Recommended: set Settings → Execution → Preview Method to `none`.
 
 ## Runtime configuration (browser console)
 
