@@ -1,7 +1,7 @@
 # ComfyUI-ProgressThrottleSafe
 
 **Temporary workaround** for ComfyUI generation slowing down 30–60% while the
-browser tab is active/visible ([issue link here]). This should become
+browser tab is active/visible (https://github.com/Comfy-Org/ComfyUI_frontend/issues/14599). This should become
 unnecessary once the frontend addresses the underlying causes — check the
 linked issue before installing.
 
