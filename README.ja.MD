@@ -12,11 +12,10 @@
 
 ## インストール
 
-1. 旧パッチ(`comfyui-progress-throttle` 等)を削除
-2. このフォルダを `ComfyUI/custom_nodes/` に配置
-3. サーバー再起動 + ブラウザ Ctrl+F5
-4. コンソールに `[progress-throttle-safe] active` と `[quiet-mode] registered` が出れば有効
-5. 生成開始時に `[quiet-mode] on (css animations paused)`、終了時に `off` が出ることを確認
+1. このフォルダを `ComfyUI/custom_nodes/` に配置
+2. サーバー再起動 + ブラウザ Ctrl+F5
+3. コンソールに `[progress-throttle-safe] active` と `[quiet-mode] registered` が出れば有効
+4. 生成開始時に `[quiet-mode] on (css animations paused)`、終了時に `off` が出ることを確認
 
 ## 調整(ブラウザコンソール)
 
